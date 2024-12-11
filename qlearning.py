@@ -50,6 +50,8 @@ policy_kwargs = dict(
 env = gym.make("MiniGrid-Empty-16x16-v0", render_mode=None)
 env = ImgObsWrapper(env)
 num_actions = env.action_space.n
+
+# env.start()
 # Q-Table: Dictionary keyed by state (image) tuples
 Q = {}
 
@@ -100,5 +102,5 @@ for episode in range(num_episodes):
 
     if (episode + 1) % 100 == 0:
         print(f"Episode {episode+1}/{num_episodes}, Total Reward: {total_reward}, Epsilon: {epsilon:.3f}")
-
+print(Q)
 env.close()
